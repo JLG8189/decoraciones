@@ -1,13 +1,14 @@
 @extends('layouts.principal')
 @section('contenido')
     
-<h2>Listado de Pedidos</h2>
+<!--h2>Listado de Pedidos</h2-->
 
-    <p>
-        <a href="{{ route('pedido.create') }}">Agregar Pedido</a>
-    </p>
+<!--a class="filled-button"
+    href="{{ route('pedido.create') }}">    
+    Agregar Pedido
+</a-->
 
-    <table border="1">
+    <table class = "center", border="1">
         <thead>
             <tr>
                 <th>ID</th>
@@ -15,6 +16,7 @@
                 <th>Descripción</th>
                 <th>Importe</th>
                 <th>Fecha</th>
+                <th>Usuario</th>
                 <th>Articulo ID</th>
                 <th>Acciones</th>
             </tr>
@@ -29,6 +31,7 @@
                     </td>
                     <td>{{ $pedido->importe }}</td>
                     <td>{{ $pedido->fecha }}</td>
+                    <td>{{ $pedido->user->name }}</td>
                     <td>{{ $pedido->articulo_id }}</td>
                     <td>
                         <a href="{{ route('pedido.edit', $pedido) }}">Editar</a>
@@ -37,5 +40,6 @@
             @endforeach
         </tbody>
     </table>
+    <div class="read_bt"><a href="{{ route('pedido.create') }}">Agregar Pedido</a></div>
 
 @endsection

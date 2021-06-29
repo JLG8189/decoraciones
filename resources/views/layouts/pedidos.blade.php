@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -15,20 +15,20 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
       <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
       <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- owl stylesheets --> 
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
@@ -36,7 +36,7 @@
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <div class="logo"><a href="index.html"><img src="{{ asset('images/logo.png') }}"></a></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -67,24 +67,18 @@
       </div>
       <!--header section end -->
       <!-- about section start -->
-      <div class="about_section layout_padding">
+      <!--div class="container">
+      <div class="about_taital">Agregar Pedido</div>
+      </div-->
+      <div class="contact_section layout_padding">
          <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="about_taital_main">
-                     <div class="about_taital">Listado de Pedidos</div>
-                     <p class="about_text">Full cleaning and housekeeping services for companies and households.</p>
-                      @yield('contenido')
-                     <p class="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text.Lorem Ipsum is simply</p>
-                     <!--div class="read_bt"><a href="#">Read More</a></div-->
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="about_img"><img src="images/about-img.png"></div>
-               </div>
-            </div>
+            <h1 class="contact_text">Agregar Pedido</h1>
          </div>
       </div>
+      
+      @yield('content')
+      
+    
       <!-- about section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding margin_top90">
@@ -144,13 +138,13 @@
       </div>
       <!-- copyright section end -->
       <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <script src="js/plugin.js"></script>
+      <script src="{{ asset('js/jquery.min.js') }}"></script>
+      <script src="{{ asset('js/popper.min.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+      <script src="{{ asset('js/jquery-3.0.0.min.js') }}"></script>
+      <script src="{{ asset('js/plugin.js') }}"></script>
       <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>     
+      <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+      <script src="{{ asset('js/custom.js') }}"></script>     
    </body>
 </html>

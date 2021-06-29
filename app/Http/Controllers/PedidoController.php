@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -15,7 +15,8 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $pedidos = Pedido::all();
+        //$pedidos = Pedido::all();
+        $pedidos = Auth::user()->pedidos;
         return view('pedido.pedido-index', compact('pedidos'));
     }
 
@@ -38,6 +39,14 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'cantidad' => 'required|integer|min:1',
+            'descripcion' => 'required|string|min:5|max:255',
+            'importe' => 'required|numeric',
+            'fecha' => 'required|string|min:5|max:255',
+            'articulo_id' => 'required|integer|min:1',
+        ]);
+        $request->merge(['user_id' => $request->user()->id]);
         Pedido::create($request->all());
 
         return redirect()->route('pedido.index');
@@ -74,6 +83,13 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
+        $request->validate([
+            'cantidad' => 'required|integer|min:1',
+            'descripcion' => 'required|string|min:5|max:255',
+            'importe' => 'required|numeric',
+            'fecha' => 'required|string|min:5|max:255',
+            'articulo_id' => 'required|integer|min:1',
+        ]);
         Pedido::where('id', $pedido->id)->update($request->except('_token', '_method'));
 
         return redirect()->route('pedido.show', $pedido);
