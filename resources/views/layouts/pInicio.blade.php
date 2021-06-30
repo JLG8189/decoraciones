@@ -43,20 +43,60 @@
                <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{{ route('pedido.index') }}">Inicio</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about.html">Galería</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
+                        <a class="nav-link" href="{{ route('pedido.create') }}">Comprar</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
+                        <a class="nav-link" href="{{ route('pedido.index') }}">Pedidos</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact Us</a>
                      </li>
+                     <li class="nav-item">
+                        <div class="send_btn">
+                        </div>
+                     </li>
+                     @guest
+                     <ul>
+                        <li>
+                           <a href=" {{route('login') }}">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Log In</span>
+                           </a>
+                        </li>
+                        <li>
+                            <a href=" {{route('register') }}">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Registrarse</span>
+                           </a>
+                        </li>
+                    </ul>
+                    @endguest
+                     @auth
+                    <ul>
+                        <br>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a
+                                    href="#"
+                                    onclick="event.preventDefault(); this.closest('form').submit();"
+                                >
+                                    <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Salir</span>
+                            
+                                </a>
+                            </form>
+                        </li>
+                        <!--li>
+                           <a href="#">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Log Out</span>
+                           </a>
+                        </li-->
+                     </ul>
+                    @endauth
                      <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                      </li>
