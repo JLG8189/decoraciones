@@ -21,7 +21,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="{{ asset('images/fevicon.png') }}" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
@@ -57,6 +57,43 @@
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact Us</a>
                      </li>
+
+                     <li class="nav-item">
+                        <div class="send_btn">
+                        </div>
+                     </li>
+                     @guest
+                     <ul>
+                        <li>
+                           <a href=" {{route('login') }}">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Log In</span>
+                           </a>
+                        </li>
+                        <li>
+                            <a href=" {{route('register') }}">
+                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Registrarse</span>
+                           </a>
+                        </li>
+                    </ul>
+                    @endguest
+                    @auth
+                    <ul>
+                      <br>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a
+                                    href="#"
+                                    onclick="event.preventDefault(); this.closest('form').submit();"
+                                >
+                                    <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Salir</span>
+                            
+                                </a>
+                            </form>
+                        </li>
+                     </ul>
+                    @endauth
+
                      <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                      </li>

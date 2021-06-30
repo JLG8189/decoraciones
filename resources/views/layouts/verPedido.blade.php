@@ -42,7 +42,7 @@
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
-                     <li class="nav-item">
+                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home</a>
                      </li>
                      <li class="nav-item">
@@ -51,8 +51,8 @@
                      <li class="nav-item">
                         <a class="nav-link" href="gallery.html">Gallery</a>
                      </li>
-                     <li class="nav-item active">
-                        <a class="nav-link" href="services.html">Pedidos</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact Us</a>
@@ -76,9 +76,9 @@
                         </li>
                     </ul>
                     @endguest
-                     @auth
+                    @auth
                     <ul>
-                        <br>
+                      <br>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -91,15 +91,8 @@
                                 </a>
                             </form>
                         </li>
-                        <!--li>
-                           <a href="#">
-                           <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_10" style="color:white">Log Out</span>
-                           </a>
-                        </li-->
                      </ul>
                     @endauth
-                    
-                     
 
                      <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -111,18 +104,26 @@
       </div>
       <!--header section end -->
       <!-- about section start -->
-      <!--div class="container">
-      <div class="about_taital">Agregar Pedido</div>
-      </div-->
-      <div class="contact_section layout_padding">
-        <div class="container">
-            <h1 class="contact_text">Agregar Pedido</h1>
+      
+         <div class="container">
+            <div class="row">
+            <div class="contact_text">Detalle del Pedido</div>
+               <div class="col-md-6">
+                  <div class="about_taital_main">
+                     
+                        <div class="container">
+                            @yield('contenido')
+                        </div>
+                     
+                     <!--div class="read_bt"><a href="#">Read More</a></div-->
+                  </div>
+               </div>
+               <div>
+               @yield('content')
+               </div>
+            </div>
          </div>
-      </div>
       
-      @yield('content')
-      
-    
       <!-- about section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding margin_top90">

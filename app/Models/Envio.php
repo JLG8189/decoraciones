@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Envio extends Model
 {
     use HasFactory;
+
+    public function pedidos()
+    {
+        return $this->belongsToMany(Pedido::class);
+    }
+
 }

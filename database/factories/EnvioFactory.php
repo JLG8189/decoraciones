@@ -25,7 +25,7 @@ class EnvioFactory extends Factory
             'estado' => $this->faker->state(),
             'ciudad' => $this->faker->city(),
             'direccion' => $this->faker->address(),
-            'pedido_id' => $this->faker->numberBetween(3, 6),
+            'pedido_id' => $this->faker->numberBetween(2, 5),
         ];
     }
 }

@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Envio;
 use App\Models\Pedido;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +66,8 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        return view('pedido.pedido-show', compact('pedido'));
+        $envios = Envio::get();
+        return view('pedido.pedido-show', compact('pedido', 'envios'));
     }
 
     /**
@@ -105,5 +112,12 @@ class PedidoController extends Controller
     {
         $pedido->delete();
         return redirect()->route('pedido.index');
+    }
+
+    public function agregaEnvio(Request $request, Pedido $pedido)
+    {
+        $pedido->envios()->sync($request->envio_id);
+
+        return redirect()->route('pedido.show', $pedido);
     }
 }

@@ -14,4 +14,9 @@ class Pedido extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function envios()
+    {
+        return $this->belongsToMany(Envio::class);
+    }
 }

@@ -3,7 +3,6 @@
 
     <!--h1></h1-->
     <br>
-
     <p>
         <div class="container">
         <div class="read_bt"><a href="{{ route('pedido.index') }}">Pedidos</a></div>
@@ -11,7 +10,6 @@
         <!--a href="{{ route('pedido.index') }}">Listado de Pedidos</a-->
     </p>
 
-    <div class="contact_section_2 layout_padding">
     <div class="container">
     @if ($errors->any())
     <div class="row">
@@ -32,7 +30,6 @@
     </div>
     </div>
     @endif
-    </div>
     </div>
 
     @if(isset($pedido))

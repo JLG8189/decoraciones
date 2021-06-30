@@ -19,11 +19,12 @@ Route::get('inicio', function() {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('pedido', PedidoController::class);
+Route::post('pedido/{pedido}/agrega-envio', [PedidoController::class, 'agregaEnvio'])->name('pedido.agrega-envio');
+Route::resource('pedido', PedidoController::class);//->middleware('auth');
