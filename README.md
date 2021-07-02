@@ -1,7 +1,8 @@
 
 <!--
     Proyecto final Programación para internet 2021A
-    Proyecto para una página en la que se venden productos de artesanía y arreglos para fiestas y eventos.
+    Proyecto Decoraciones.
+    Proyecto para una página de venta de productos de artesanía y arreglos para fiestas y eventos.
     Jorge Linares.
 
  -->
