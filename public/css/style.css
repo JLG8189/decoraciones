@@ -268,7 +268,7 @@ button {
 .banner_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/banner-bg11.png);
     height: auto;
     background-size: 100%;
     padding: 10px 0px 25px 0px;
@@ -541,7 +541,7 @@ a:hover {
 .services_section {
     width: 100%;
     float: left;
-    background-image: url(../images/services-bg.png);
+    background-image: url(../images/services-bg1.png);
     height: auto;
     padding-bottom: 100px;
     background-attachment: fixed;
@@ -800,7 +800,7 @@ a:hover {
 .mail_section {
     width: 100%;
     float: left;
-    background-image: url(../images/img-9.png);
+    background-image: url(../images/img-19.png);
     height: auto;
     padding: 23px 70px;
     background-repeat: no-repeat;

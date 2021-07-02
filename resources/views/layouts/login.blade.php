@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Registro</title>
+      <title>Iniciar Sesión My Aniversario</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -36,27 +36,29 @@
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+               <div class="logo"><a href="/"><img src="{{ asset('images/logos.png') }}"></a></div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/">Inicio</a>
+                     </li>
+                     <!--li class="nav-item">
+                        <a class="nav-link" href="#">Galería</a>
+                     </li-->
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pedido.create') }}">Comprar</a>
+                     </li>
+                     @auth
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('pedido.index') }}">Pedidos</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="{{ route('archivo.index') }}">Archivos</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                     </li>
+                     @endauth
                      <li class="nav-item">
                         <div class="send_btn">
                         </div>
@@ -125,18 +127,19 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-3 col-sm-6">
-                  <h3 class="useful_text">About</h3>
-                  <p class="footer_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation u</p>
+                  <h3 class="useful_text">Información</h3>
+                  <p class="footer_text">Decoraciones para bautizos, fiestas de XV años, bodas y más.</p>
                </div>
                <div class="col-lg-3 col-sm-6">
-                  <h3 class="useful_text">Menu</h3>
+                  <h3 class="useful_text">Menú</h3>
                   <div class="footer_menu">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="{{ route('pedido.create') }}">Comprar</a></li>
+                        @auth 
+                        <li><a href="{{ route('pedido.index') }}">Pedidos</a></li>
+                        <li><a href="{{ route('archivo.index') }}">Archivos</a></li>
+                        @endauth
                      </ul>
                   </div>
                </div>
@@ -145,7 +148,7 @@
                   <p class="dummy_text">Adipiscing Elit, sed do Eiusmod Tempor incididunt </p>
                </div>
                <div class="col-lg-3 col-sm-6">
-                  <h1 class="useful_text">Contact Us</h1>
+                  <h1 class="useful_text">Contacto</h1>
                   <div class="location_text">
                      <ul>
                         <li>

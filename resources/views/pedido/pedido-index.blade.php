@@ -8,7 +8,39 @@
     Agregar Pedido
 </a-->
 
-    <table class = "center", border="1">
+<head>
+    <style>
+        table.tabla {
+        width: 100%;
+        background-color: #ffffff;
+        border-collapse: separate;
+        border-width: 3px;
+        border-color: #b0b0b0;
+        border-style: outset;
+        color: #000000;
+        }
+
+        table.tabla td, table.tabla th {
+        border-width: 3px;
+        border-color: #b0b0b0;
+        border-style: outset;
+        padding: 3px;
+        }
+
+        table.tabla thead {
+        background-color: #ff8324;
+        }
+    </style>
+</head>
+
+
+                
+                   
+                            
+                            
+                        
+
+    <table class="tabla", class = "center", border="1" >
         <thead>
             <tr>
                 <th>ID</th>
@@ -40,6 +72,10 @@
             @endforeach
         </tbody>
     </table>
+
+                
+            
+
     <div class="read_bt"><a href="{{ route('pedido.create') }}">Agregar Pedido</a></div>
 
 @endsection

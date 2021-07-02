@@ -6,6 +6,7 @@ use App\Models\Envio;
 use App\Models\Pedido;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PedidoController extends Controller
 {
@@ -22,7 +23,9 @@ class PedidoController extends Controller
     public function index()
     {
         //$pedidos = Pedido::all();
-        $pedidos = Auth::user()->pedidos;
+        //$pedidos = Auth::user()->pedidos()->with('user')->get();
+        //$pedidos = Pedido::with('user:id,name')->get();
+        $pedidos = Auth::user()->pedidos()->with('user:id,name')->get();
         return view('pedido.pedido-index', compact('pedidos'));
     }
 
@@ -33,7 +36,8 @@ class PedidoController extends Controller
      */
     public function create()
     {
-
+        //Gate::authorize('admin-pedidos');
+            
         return view('pedido.pedido-form');
     }
 
@@ -45,6 +49,8 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+        //Gate::authorize('admin-pedidos');
+
         $request->validate([
             'cantidad' => 'required|integer|min:1',
             'descripcion' => 'required|string|min:5|max:255',
@@ -68,6 +74,7 @@ class PedidoController extends Controller
     {
         $envios = Envio::get();
         return view('pedido.pedido-show', compact('pedido', 'envios'));
+        //$this->authorize('viewAny');
     }
 
     /**

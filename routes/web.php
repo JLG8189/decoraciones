@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\PedidoController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -46,3 +47,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::post('pedido/{pedido}/agrega-envio', [PedidoController::class, 'agregaEnvio'])->name('pedido.agrega-envio');
 Route::resource('pedido', PedidoController::class)->middleware('verified');
+
+Route::get('archivo/descargar/{archivo}', [ArchivoController::class, 'descargar'])->name('archivo.descargar');
+Route::resource('archivo', ArchivoController::class)->except(['edit', 'update', 'show']);
